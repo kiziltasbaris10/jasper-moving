@@ -19,18 +19,53 @@ document.addEventListener('DOMContentLoaded', () => {
     el.textContent = new Date().getFullYear();
   });
 
-  // Quote / contact form (client-side only — no backend wired up yet)
-  const form = document.querySelector('#quote-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
+  // Quote / contact forms — submitted via AJAX to Formspree
+  document.querySelectorAll('form[data-ajax]').forEach((form) => {
+    const status = form.querySelector('.form-success');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const defaultSuccessText = status ? status.textContent : '';
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const success = document.querySelector('#form-success');
-      if (success) {
-        success.classList.add('visible');
-        success.setAttribute('tabindex', '-1');
-        success.focus();
+      if (status) status.classList.remove('visible', 'form-error');
+
+      const originalLabel = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
       }
-      form.reset();
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (!response.ok) throw new Error('Request failed');
+
+        form.reset();
+        if (status) {
+          status.textContent = defaultSuccessText;
+          status.classList.remove('form-error');
+          status.classList.add('visible');
+          status.setAttribute('tabindex', '-1');
+          status.focus();
+        }
+      } catch (err) {
+        if (status) {
+          status.textContent =
+            "Something went wrong sending your request — please call us at (647) 555-0123 or email info@jaspermoving.com directly.";
+          status.classList.add('visible', 'form-error');
+          status.setAttribute('tabindex', '-1');
+          status.focus();
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+        }
+      }
     });
-  }
+  });
 });

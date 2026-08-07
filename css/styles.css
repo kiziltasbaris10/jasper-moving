@@ -411,6 +411,11 @@ textarea { resize: vertical; min-height: 120px; }
   font-weight: 500;
 }
 .form-success.visible { display: block; }
+.form-success.form-error {
+  background: #fdecea;
+  border-color: #c0392b;
+  color: #8a2c20;
+}
 
 /* ── Contact info blocks ── */
 .contact-block {

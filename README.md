@@ -23,8 +23,8 @@ This site ships with realistic **placeholder** business info — swap these out 
 | Placeholder | Found in | Replace with |
 |---|---|---|
 | `(647) 555-0123` | every page (header, footer, contact page) | Real phone number |
-| `info@jaspermoving.ca` | every page | Real email address |
-| `https://jaspermoving.ca` | canonical URLs, Open Graph tags, JSON-LD, `robots.txt`, `sitemap.xml` | Your actual domain |
+| `info@jaspermoving.com` | every page | Real email address |
+| `https://jaspermoving.com` | canonical URLs, Open Graph tags, JSON-LD, `robots.txt`, `sitemap.xml` | Your actual domain |
 | `#` social links (Facebook, Instagram, Google Reviews) in the footer | every page | Real profile URLs |
 | Testimonials on the home page | `index.html` | Real customer quotes (with permission) |
 | Illustrated SVG graphics (truck, boxes) | `index.html`, `about.html` | Real photos of your crew/trucks, if you have them |
@@ -37,9 +37,9 @@ grep -rl "555-0123" . --include="*.html" | xargs sed -i '' 's/(647) 555-0123/YOU
 grep -rl "555-0123" . --include="*.html" | xargs sed -i 's/(647) 555-0123/YOUR-PHONE/g'       # Linux
 ```
 
-(Do the same for `info@jaspermoving.ca` and `jaspermoving.ca`.)
+(Do the same for `info@jaspermoving.com` and `jaspermoving.com`.)
 
-The quote form on `contact.html` currently submits via `mailto:` (opens the visitor's email client) — good enough to launch, but consider swapping in a hosted form backend (e.g. Formspree, Getform, or a small serverless function) for a smoother experience once you have a domain.
+The quote forms (home page hero + `contact.html`) submit via [Formspree](https://formspree.io) using AJAX (see `js/main.js`), so submissions land in the inbox tied to the Formspree form without leaving the page. The endpoint is hardcoded as `https://formspree.io/f/xppawjwg` in `index.html` and `contact.html` — if you ever recreate the Formspree form, update the `action` attribute on both `<form data-ajax ...>` elements to the new endpoint. Formspree's free tier caps at 50 submissions/month; upgrade if you outgrow it.
 
 ## SEO features included
 
@@ -58,7 +58,23 @@ The quote form on `contact.html` currently submits via `mailto:` (opens the visi
 2. In the repo, go to **Settings → Pages**.
 3. Under **Build and deployment**, set **Source** to `Deploy from a branch`, branch `main`, folder `/ (root)`.
 4. Save — your site will be live at `https://<username>.github.io/jasper-moving/` within a minute or two.
-5. If you buy a custom domain (e.g. `jaspermoving.ca`), add it under **Custom domain** in the same Pages settings, and update the canonical/OG URLs and `sitemap.xml`/`robots.txt` in this repo to match.
+5. This repo already includes a `CNAME` file pointing at `jaspermoving.com` and all canonical/OG/JSON-LD URLs, `sitemap.xml`, and `robots.txt` reference that domain. See **Custom domain setup** below to connect it.
+
+## Custom domain setup (jaspermoving.com)
+
+1. **Buy the domain** from a registrar (Namecheap, Porkbun, Google Domains successor Squarespace, GoDaddy, etc.) — search `jaspermoving.com` and purchase it.
+2. **Add DNS records** in your registrar's DNS settings:
+   - Four `A` records for the apex domain (`jaspermoving.com`), all pointing to GitHub Pages' IPs:
+     ```
+     185.199.108.153
+     185.199.109.153
+     185.199.110.153
+     185.199.111.153
+     ```
+   - One `CNAME` record for `www` pointing to `kiziltasbaris10.github.io`.
+3. **Set the custom domain in GitHub**: repo → **Settings → Pages** → under **Custom domain**, enter `jaspermoving.com` → **Save**. (The `CNAME` file in this repo does this automatically once DNS resolves, but setting it explicitly in the UI avoids it getting reset.)
+4. Wait for the DNS check to pass (can take a few minutes to 24–48 hours depending on the registrar), then tick **Enforce HTTPS** in the same Pages settings once it becomes available.
+5. Once live, verify `https://jaspermoving.com` loads the site directly (no `github.io` in the address bar).
 
 ## Local preview
 

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Jasper Moving | Trusted Movers in Toronto &amp; the GTA</title>
 <meta name="description" content="Jasper Moving provides professional residential, office, and long-distance moving services across Toronto and the Greater Toronto Area. Licensed, insured, and reliable. Get a free quote today." />
-<link rel="canonical" href="https://jaspermoving.ca/" />
+<link rel="canonical" href="https://jaspermoving.com/" />
 <meta name="theme-color" content="#0a2540" />
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link rel="manifest" href="site.webmanifest" />
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Jasper Moving" />
 <meta property="og:title" content="Jasper Moving | Trusted Movers in Toronto & the GTA" />
 <meta property="og:description" content="Professional residential, office, and long-distance moving services across the Greater Toronto Area. Licensed, insured, and reliable." />
-<meta property="og:url" content="https://jaspermoving.ca/" />
+<meta property="og:url" content="https://jaspermoving.com/" />
 <meta property="og:locale" content="en_CA" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Jasper Moving | Trusted Movers in Toronto & the GTA" />
@@ -30,13 +30,13 @@
 {
   "@context": "https://schema.org",
   "@type": "MovingCompany",
-  "@id": "https://jaspermoving.ca/#organization",
+  "@id": "https://jaspermoving.com/#organization",
   "name": "Jasper Moving",
-  "url": "https://jaspermoving.ca/",
+  "url": "https://jaspermoving.com/",
   "telephone": "+1-647-555-0123",
-  "email": "info@jaspermoving.ca",
+  "email": "info@jaspermoving.com",
   "priceRange": "$$",
-  "image": "https://jaspermoving.ca/assets/favicon.svg",
+  "image": "https://jaspermoving.com/assets/favicon.svg",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Toronto",
@@ -115,7 +115,9 @@
       <div class="hero-card">
         <h2>Request a Free Quote</h2>
         <p class="sub">Tell us about your move — we'll reply same-day with a no-obligation estimate.</p>
-        <form action="mailto:info@jaspermoving.ca" method="post" enctype="text/plain">
+        <form id="hero-quote-form" data-ajax action="https://formspree.io/f/xppawjwg" method="POST">
+          <input type="hidden" name="_subject" value="New Quote Request — Jasper Moving website" />
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
           <div style="margin-bottom:14px;">
             <label for="hero-name">Full name</label>
             <input id="hero-name" name="name" type="text" required placeholder="Jane Smith" />
@@ -134,6 +136,7 @@
             </select>
           </div>
           <button type="submit" class="btn btn-primary btn-block">Send Request</button>
+          <div class="form-success" role="status"></div>
         </form>
       </div>
     </div>
@@ -352,7 +355,7 @@
         <h4>Contact</h4>
         <ul>
           <li><a href="tel:+16475550123">(647) 555-0123</a></li>
-          <li><a href="mailto:info@jaspermoving.ca">info@jaspermoving.ca</a></li>
+          <li><a href="mailto:info@jaspermoving.com">info@jaspermoving.com</a></li>
           <li>Serving the Greater Toronto Area, ON</li>
           <li>Mon–Sat: 7:00 AM – 8:00 PM</li>
         </ul>
