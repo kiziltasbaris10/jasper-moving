@@ -213,8 +213,19 @@ a:hover { color: var(--orange-600); }
   background-image: radial-gradient(circle at 85% 20%, rgba(242, 116, 15, 0.25), transparent 45%);
   pointer-events: none;
 }
+.hero-skyline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 130px;
+  z-index: 0;
+  pointer-events: none;
+}
 .hero-inner {
   position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 48px;
@@ -310,6 +321,7 @@ section { padding: 88px 0; }
   margin-bottom: 18px;
   color: var(--orange-600);
 }
+.card-illustration { width: 100%; height: auto; display: block; border-radius: var(--radius-sm); margin-bottom: 20px; }
 .card ul { padding-left: 20px; margin: 12px 0 0; color: var(--ink-soft); font-size: 0.95rem; }
 .card ul li { margin-bottom: 6px; }
 .card a.card-link { font-weight: 600; font-size: 0.92rem; display: inline-flex; align-items: center; gap: 4px; margin-top: 12px; }
