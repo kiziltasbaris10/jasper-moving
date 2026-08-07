@@ -9,10 +9,12 @@ index.html            Home
 services.html          Residential / commercial / long-distance / packing & storage
 service-areas.html     GTA cities served, grouped by region
 about.html              Company story, values, process
-contact.html            Quote request form + contact details
+contact.html            Quote request form + contact details + service-area map
+404.html                Branded not-found page (noindex)
 css/styles.css          Shared design system
-js/main.js              Mobile nav, form handling, footer year
-assets/favicon.svg      Favicon / logo mark
+js/main.js              Mobile nav, AJAX form handling, footer year
+assets/favicon.svg      Favicon / logo mark (+ generated PNG/apple-touch-icon variants)
+CNAME                    Custom domain for GitHub Pages
 robots.txt, sitemap.xml, site.webmanifest   SEO/PWA infrastructure
 ```
 
@@ -26,7 +28,6 @@ This site ships with realistic **placeholder** business info — swap these out 
 | `info@jaspermoving.com` | every page | Real email address |
 | `https://jaspermoving.com` | canonical URLs, Open Graph tags, JSON-LD, `robots.txt`, `sitemap.xml` | Your actual domain |
 | `#` social links (Facebook, Instagram, Google Reviews) in the footer | every page | Real profile URLs |
-| Testimonials on the home page | `index.html` | Real customer quotes (with permission) |
 | Illustrated SVG graphics (truck, boxes) | `index.html`, `about.html` | Real photos of your crew/trucks, if you have them |
 | Business hours (Mon–Sat, 7 AM–8 PM) | every page | Your actual hours |
 
