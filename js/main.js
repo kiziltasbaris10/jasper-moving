@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (err) {
         if (status) {
           status.textContent =
-            "Something went wrong sending your request — please call us at (647) 555-0123 or email info@jaspermoving.com directly.";
+            "Something went wrong sending your request — please call us at (647) 555-0123 or email info@jaspermoving.ca directly.";
           status.classList.add('visible', 'form-error');
           status.setAttribute('tabindex', '-1');
           status.focus();

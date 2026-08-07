@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jaspermoving.com/sitemap.xml
+Sitemap: https://jaspermoving.ca/sitemap.xml
