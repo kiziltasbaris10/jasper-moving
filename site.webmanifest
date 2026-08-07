@@ -1,0 +1,16 @@
+{
+  "name": "Jasper Moving",
+  "short_name": "Jasper Moving",
+  "description": "Professional moving services across the Greater Toronto Area.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a2540",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
