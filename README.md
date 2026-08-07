@@ -27,18 +27,17 @@ This site ships with realistic **placeholder** business info — swap these out 
 
 | Placeholder | Found in | Replace with |
 |---|---|---|
-| `(647) 555-0123` | every page (header, footer, contact page) | Real phone number |
 | `info@jaspermoving.ca` | every page | Real email address |
-| `https://jaspermoving.ca` | canonical URLs, Open Graph tags, JSON-LD, `robots.txt`, `sitemap.xml` | Your actual domain |
+| `https://jaspermoving.ca` | canonical URLs, Open Graph tags, JSON-LD, `robots.txt`, `sitemap.xml` | Your actual domain (already connected) |
 | `#` social links (Facebook, Instagram, Google Reviews) in the footer | every page | Real profile URLs |
 | Illustrated SVG graphics (truck, boxes) | `index.html`, `about.html` | Real photos of your crew/trucks, if you have them |
 | Business hours (Mon–Sat, 7 AM–8 PM) | every page | Your actual hours |
 
-A quick way to update phone/email/domain everywhere at once:
+Phone number `(647) 702-6274` is real. A quick way to update the email address everywhere at once:
 
 ```bash
-grep -rl "555-0123" . --include="*.html" | xargs sed -i '' 's/(647) 555-0123/YOUR-PHONE/g'   # macOS
-grep -rl "555-0123" . --include="*.html" | xargs sed -i 's/(647) 555-0123/YOUR-PHONE/g'       # Linux
+grep -rl "info@jaspermoving.ca" . --include="*.html" --include="*.js" | xargs sed -i '' 's/info@jaspermoving.ca/YOUR-EMAIL/g'   # macOS
+grep -rl "info@jaspermoving.ca" . --include="*.html" --include="*.js" | xargs sed -i 's/info@jaspermoving.ca/YOUR-EMAIL/g'       # Linux
 ```
 
 (Do the same for `info@jaspermoving.ca` and `jaspermoving.ca`.)
