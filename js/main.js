@@ -44,6 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!response.ok) throw new Error('Request failed');
 
+        // GTM lead-tracking event — fires only on a confirmed successful submission.
+        // No personally identifiable information (name, phone, email) is included.
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'generate_lead',
+        });
+
         form.reset();
         if (status) {
           status.textContent = defaultSuccessText;
