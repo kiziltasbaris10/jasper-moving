@@ -44,6 +44,8 @@ grep -rl "info@jaspermoving.ca" . --include="*.html" --include="*.js" | xargs se
 
 The quote forms (home page hero + `contact.html`) submit via [Formspree](https://formspree.io) using AJAX (see `js/main.js`), so submissions land in the inbox tied to the Formspree form without leaving the page. The endpoint is hardcoded as `https://formspree.io/f/xppawjwg` in `index.html` and `contact.html` — if you ever recreate the Formspree form, update the `action` attribute on both `<form data-ajax ...>` elements to the new endpoint. Formspree's free tier caps at 50 submissions/month; upgrade if you outgrow it.
 
+Google Analytics (GA4) is wired into every page's `<head>` via the standard `gtag.js` snippet, Measurement ID `G-MZSRHPT61V`. View traffic at [analytics.google.com](https://analytics.google.com). Disclosed in `privacy-policy.html` and `terms.html`.
+
 ## SEO features included
 
 - Unique, descriptive `<title>` and meta description per page
