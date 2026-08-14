@@ -190,12 +190,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <label for="hero-name">Full name</label>
             <input id="hero-name" name="name" type="text" required placeholder="Jane Smith" />
           </div>
-          <div style="margin-bottom:14px;">
+                    <div style="margin-bottom:14px;">
             <label for="hero-phone">Phone number</label>
             <input id="hero-phone" name="phone" type="tel" required placeholder="(647) 702-6274" />
           </div>
+          <div style="margin-bottom:14px;">
+            <label for="hero-size">Home / office size</label>
+            <select id="hero-size" name="home_size">
+              <option value="">Select size</option>
+              <option>Studio / bachelor</option>
+              <option>1 bedroom</option>
+              <option>2 bedroom</option>
+              <option>3 bedroom</option>
+              <option>4+ bedroom house</option>
+              <option>Office / commercial space</option>
+            </select>
+          </div>
           <div style="margin-bottom:18px;">
             <label for="hero-type">Move type</label>
+        
             <select id="hero-type" name="move_type">
               <option>Residential move</option>
               <option>Office / commercial move</option>
